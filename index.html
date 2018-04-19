@@ -82,18 +82,19 @@
             holder.style.backgroundSize = '0 0';
             var img = new Image;
             img.onload = function() {
-              var smallestValue = (img.width > img.height ? img.height : img.width);
+              var isHorizontal = (img.width > img.height);
+              var smallestValue = (isHorizontal ? img.height : img.width);
               // console.log("The width of the image is " + img.width + "px.");
               // console.log("The height of the image is " + img.height + "px.");
-              // console.log("Smallest value: " + (img.width > img.height ? "Height, " : "Width, ") + smallestValue + "px.");
-              if (img.width > img.height) {
+              // console.log("Smallest value: " + (isHorizontal ? "Height, " : "Width, ") + smallestValue + "px.");
+              if (isHorizontal) {
                 var iterations = (Math.ceil(holder.offsetWidth / img.height));
               } else {
                 var iterations = (Math.ceil(holder.offsetHeight / img.width));
               }
               for (var i = 0; i < iterations; i++) {
                 var div = document.createElement("div");
-                if (img.width > img.height) {
+                if (isHorizontal) {
                   div.style.width = smallestValue + 'px';
                   holder.style.flexDirection = 'row';
                 } else {
