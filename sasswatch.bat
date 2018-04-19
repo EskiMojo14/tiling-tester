@@ -1,0 +1,1 @@
+node-sass --watch --include-path node_modules scss\styles.scss css\styles.css

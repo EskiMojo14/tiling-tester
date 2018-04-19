@@ -1,0 +1,79 @@
+@import "@material/theme/color-palette";
+
+$mdc-theme-primary: $material-color-blue-grey-500;
+$mdc-theme-secondary: $material-color-pink-a200;
+
+$mdc-theme-background: white;
+$body-background: #fafafa;
+
+//dark theme
+// $mdc-theme-background: $material-color-grey-800;
+// $body-background: #303030;
+ 
+//---------------------------------------------------
+
+@import "@material/elevation/mixins";
+@import "@material/theme/mixins";
+
+@import "@material/card/mdc-card";
+@import "@material/checkbox/mdc-checkbox";
+@import "@material/form-field/mdc-form-field";
+@import "@material/layout-grid/mdc-layout-grid";
+@import "@material/snackbar/mdc-snackbar";
+@import "@material/toolbar/mdc-toolbar";
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/typography/mdc-typography";
+
+//@import "material-components-web/material-components-web";
+
+body {
+  background-color: $body-background;
+  @include mdc-theme-prop(color, text-primary-on-background);
+}
+
+.mdc-top-app-bar--fixed {
+  @include mdc-elevation(4);
+}
+
+.mdc-card {
+  border-radius: 4px;
+}
+
+.caption {
+  margin-top: 0;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  .mdc-toolbar__section {
+    padding: 0;
+  }
+  .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 28px;
+    max-height: 56px;
+  }
+}
+
+@media (max-width: 840px) {
+  .caption {
+    margin-bottom: 16px;
+  }
+}
+
+.texture-card {
+  height: 1024px;
+  overflow: hidden;
+  display: flex;
+  transition: mdc-elevation-transition-value();
+  &.hover {
+    @include mdc-elevation(8);
+  }
+  div {
+    background-image: inherit;
+  }
+}

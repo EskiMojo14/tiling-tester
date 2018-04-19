@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tiling Texture Tester</title>
+    <link href='css/styles.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  </head>
+  <body class="mdc-typography">
+    <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <span class="mdc-top-app-bar__title">Tiling Texture Tester</span>
+        </section>
+      </div>
+    </header>
+    <main class="mdc-layout-grid">
+      <div class="caption">
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+          <span class="mdc-typography--subheading2 text">Drag and drop your texture onto the card below to test that it tiles.</span>
+        </section>
+        <section class="mdc-toolbar__section mdc-toolbar__section--shrink-to-fit mdc-toolbar__section--align-end">
+          <div class="mdc-form-field">
+            <div class="mdc-checkbox">
+              <input type="checkbox" id="crop-square" class="mdc-checkbox__native-control"/>
+              <div class="mdc-checkbox__background">
+                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                  <path class="mdc-checkbox__checkmark-path" fill="none" stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                </svg>
+                <div class="mdc-checkbox__mixedmark"></div>
+              </div>
+            </div>
+            <label for="crop-square">Crop to Square (useful for animations)</label>
+          </div>
+        </section>
+      </div>
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-card texture-card" id="texture-card"></div>
+      </div>
+    </main>
+    <div class="mdc-snackbar" id="no-filereader" aria-live="assertive" aria-atomic="true" aria-hidden="true">
+      <div class="mdc-snackbar__text">Error: FileReader() unsupported</div>
+      <div class="mdc-snackbar__action-wrapper">
+        <button type="button" class="mdc-snackbar__action-button"></button>
+      </div>
+    </div>
+    <script>
+      mdc.checkbox.MDCCheckbox.attachTo(document.querySelector('.mdc-checkbox'));
+    </script>
+    <script>
+      var holder = document.getElementById('texture-card');
+      var squareCheckbox = document.getElementById('crop-square');
+      const snackbar = new mdc.snackbar.MDCSnackbar(document.getElementById('no-filereader'));
+      
+      if (typeof window.FileReader === 'undefined') {
+        const dataObj = {
+          message: 'Error: FileReader() unsupported',
+          actionText: 'Hide',
+          actionHandler: function () {
+            console.log('Error snackbar hidden');
+          }
+        };
+        snackbar.show(dataObj);
+      }
+      
+      holder.ondragover = function () { this.classList.add('hover'); return false; };
+      holder.ondragleave = function () { this.classList.remove('hover'); return false; };
+      holder.ondrop = function (e) {
+        this.classList.remove('hover');
+        e.preventDefault();
+  
+        var file = e.dataTransfer.files[0],
+        reader = new FileReader();
+        reader.onload = function (event) {
+          console.log(event.target);
+          holder.style.background = 'url(' + event.target.result + ') repeat';
+          holder.innerHTML = '';
+          if (squareCheckbox.checked) {
+            holder.style.backgroundSize = '0 0';
+            var img = new Image;
+            img.onload = function() {
+              var smallestValue = (img.width > img.height ? img.height : img.width);
+              // console.log("The width of the image is " + img.width + "px.");
+              // console.log("The height of the image is " + img.height + "px.");
+              // console.log("Smallest value: " + (img.width > img.height ? "Height, " : "Width, ") + smallestValue + "px.");
+              if (img.width > img.height) {
+                var iterations = (Math.ceil(holder.offsetWidth / img.height));
+              } else {
+                var iterations = (Math.ceil(holder.offsetHeight / img.width));
+              }
+              for (var i = 0; i < iterations; i++) {
+                var div = document.createElement("div");
+                if (img.width > img.height) {
+                  div.style.width = smallestValue + 'px';
+                  holder.style.flexDirection = 'row';
+                } else {
+                  div.style.height = smallestValue + 'px';
+                  holder.style.flexDirection = 'column';
+                }
+                holder.appendChild(div);
+              }
+            };
+            img.src = event.target.result;
+          };
+        };
+        console.log(file);
+        reader.readAsDataURL(file);
+
+        return false;
+      };
+    </script>
+  </body>
+</html>
