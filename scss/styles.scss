@@ -77,3 +77,7 @@ body {
     background-image: inherit;
   }
 }
+
+.mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background {
+  @include mdc-theme-prop(border-color, text-secondary-on-background);
+}
