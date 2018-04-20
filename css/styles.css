@@ -1933,6 +1933,186 @@
 
 /* stylelint-enable plugin/selector-bem-pattern */
 /* postcss-bem-linter: end */
+:root {
+  --mdc-theme-primary: #607d8b;
+  --mdc-theme-secondary: #ff4081;
+  --mdc-theme-background: white;
+  --mdc-theme-text-primary-on-primary: white;
+  --mdc-theme-text-secondary-on-primary: rgba(255, 255, 255, 0.7);
+  --mdc-theme-text-hint-on-primary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-disabled-on-primary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-icon-on-primary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-primary-on-secondary: white;
+  --mdc-theme-text-secondary-on-secondary: rgba(255, 255, 255, 0.7);
+  --mdc-theme-text-hint-on-secondary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-disabled-on-secondary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-icon-on-secondary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-primary-on-background: rgba(0, 0, 0, 0.87);
+  --mdc-theme-text-secondary-on-background: rgba(0, 0, 0, 0.54);
+  --mdc-theme-text-hint-on-background: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-disabled-on-background: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-icon-on-background: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-primary-on-light: rgba(0, 0, 0, 0.87);
+  --mdc-theme-text-secondary-on-light: rgba(0, 0, 0, 0.54);
+  --mdc-theme-text-hint-on-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-disabled-on-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-icon-on-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-primary-on-dark: white;
+  --mdc-theme-text-secondary-on-dark: rgba(255, 255, 255, 0.7);
+  --mdc-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5); }
+
+.mdc-theme--background {
+  background-color: white;
+  /* @alternate */
+  background-color: var(--mdc-theme-background, white); }
+
+.mdc-theme--primary {
+  color: #607d8b !important;
+  /* @alternate */
+  color: var(--mdc-theme-primary, #607d8b) !important; }
+
+.mdc-theme--secondary {
+  color: #ff4081 !important;
+  /* @alternate */
+  color: var(--mdc-theme-secondary, #ff4081) !important; }
+
+.mdc-theme--text-primary-on-primary {
+  color: white !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-primary-on-primary, white) !important; }
+
+.mdc-theme--text-secondary-on-primary {
+  color: rgba(255, 255, 255, 0.7) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-secondary-on-primary, rgba(255, 255, 255, 0.7)) !important; }
+
+.mdc-theme--text-hint-on-primary {
+  color: rgba(255, 255, 255, 0.5) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-hint-on-primary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-disabled-on-primary {
+  color: rgba(255, 255, 255, 0.5) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-disabled-on-primary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-icon-on-primary {
+  color: rgba(255, 255, 255, 0.5) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-icon-on-primary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-primary-on-secondary {
+  color: white !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-primary-on-secondary, white) !important; }
+
+.mdc-theme--text-secondary-on-secondary {
+  color: rgba(255, 255, 255, 0.7) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-secondary-on-secondary, rgba(255, 255, 255, 0.7)) !important; }
+
+.mdc-theme--text-hint-on-secondary {
+  color: rgba(255, 255, 255, 0.5) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-hint-on-secondary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-disabled-on-secondary {
+  color: rgba(255, 255, 255, 0.5) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-disabled-on-secondary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-icon-on-secondary {
+  color: rgba(255, 255, 255, 0.5) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-icon-on-secondary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-primary-on-background {
+  color: rgba(0, 0, 0, 0.87) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87)) !important; }
+
+.mdc-theme--text-secondary-on-background {
+  color: rgba(0, 0, 0, 0.54) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54)) !important; }
+
+.mdc-theme--text-hint-on-background {
+  color: rgba(0, 0, 0, 0.38) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-disabled-on-background {
+  color: rgba(0, 0, 0, 0.38) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-disabled-on-background, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-icon-on-background {
+  color: rgba(0, 0, 0, 0.38) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-icon-on-background, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-primary-on-light {
+  color: rgba(0, 0, 0, 0.87) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-primary-on-light, rgba(0, 0, 0, 0.87)) !important; }
+
+.mdc-theme--text-secondary-on-light {
+  color: rgba(0, 0, 0, 0.54) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-secondary-on-light, rgba(0, 0, 0, 0.54)) !important; }
+
+.mdc-theme--text-hint-on-light {
+  color: rgba(0, 0, 0, 0.38) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-hint-on-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-disabled-on-light {
+  color: rgba(0, 0, 0, 0.38) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-icon-on-light {
+  color: rgba(0, 0, 0, 0.38) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-icon-on-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-primary-on-dark {
+  color: white !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-primary-on-dark, white) !important; }
+
+.mdc-theme--text-secondary-on-dark {
+  color: rgba(255, 255, 255, 0.7) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-secondary-on-dark, rgba(255, 255, 255, 0.7)) !important; }
+
+.mdc-theme--text-hint-on-dark {
+  color: rgba(255, 255, 255, 0.5) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-hint-on-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-disabled-on-dark {
+  color: rgba(255, 255, 255, 0.5) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-disabled-on-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-icon-on-dark {
+  color: rgba(255, 255, 255, 0.5) !important;
+  /* @alternate */
+  color: var(--mdc-theme-text-icon-on-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--primary-bg {
+  background-color: #607d8b !important;
+  /* @alternate */
+  background-color: var(--mdc-theme-primary, #607d8b) !important; }
+
+.mdc-theme--secondary-bg {
+  background-color: #ff4081 !important;
+  /* @alternate */
+  background-color: var(--mdc-theme-secondary, #ff4081) !important; }
+
 /**
  * The css property used for elevation. In most cases this should not be changed. It is exposed
  * as a variable for abstraction / easy use when needing to reference the property directly, for
